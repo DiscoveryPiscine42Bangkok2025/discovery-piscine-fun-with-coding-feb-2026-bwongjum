@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Balloon</title>
+    <style>
+        /* ส่วนนี้คือ CSS ใช้ตกแต่งหน้าตา */
+        
+        /* จัดให้อยู่ตรงกลางหน้าจอ (ไม่ได้บังคับแต่ทำให้ดูง่าย) */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* สร้างลูกโป่งตามโจทย์ */
+        #balloon {
+            width: 200px;           /* ขนาดเริ่มต้น 200px [cite: 51] */
+            height: 200px;          /* ขนาดเริ่มต้น 200px [cite: 51] */
+            background-color: red;  /* สีเริ่มต้นสีแดง [cite: 51] */
+            border-radius: 50%;     /* ทำขอบมนเป็นวงกลม [cite: 52] */
+            cursor: pointer;        /* เปลี่ยนเมาส์เป็นรูปนิ้วเมื่อชี้ */
+            transition: 0.2s;       
+        }
+    </style>
+</head>
+<body>
+
+    <div id="balloon" onclick="clickBalloon()" onmouseleave="leaveBalloon()"></div>
+
+    <script>
+        // กำหนดค่าเริ่มต้น
+        var size = 200; // ขนาดเริ่มต้น 200 [cite: 51]
+        var colorIndex = 0; // 0=Red, 1=Green, 2=Blue
+        var colors = ['red', 'green', 'blue']; // รายชื่อสีตามลำดับ [cite: 55]
+        var balloon = document.getElementById('balloon'); // อ้างอิงถึงตัวลูกโป่ง
+
+        // ฟังก์ชัน 1: เมื่อคลิกที่ลูกโป่ง (clickBalloon)
+        function clickBalloon() {
+            // เพิ่มขนาด 10px [cite: 54]
+            size += 10;
+
+            // ตรวจสอบการระเบิด: ถ้าใหญ่กว่า 420 ให้กลับไปเหลือ 200 
+            if (size > 420) {
+                size = 200;
+                colorIndex = 0; // กลับไปเป็นสีแดงด้วย (ตามโจทย์ระบุว่ากลับไป original)
+            } else {
+                // เปลี่ยนสีตามลำดับ: Red -> Green -> Blue -> Red [cite: 55]
+                colorIndex++;
+                if (colorIndex > 2) {
+                    colorIndex = 0;
+                }
+            }
+
+            updateBalloon(); // สั่งให้อัปเดตหน้าจอ
+        }
+
+        // ฟังก์ชัน 2: เมื่อเมาส์ออกจากลูกโป่ง (leaveBalloon)
+        function leaveBalloon() {
+            // ลดขนาดลง 5px 
+            size -= 5;
+            
+            // ห้ามเล็กกว่า 200px 
+            if (size < 200) {
+                size = 200;
+            }
+
+            // เปลี่ยนสีแบบย้อนกลับ: Blue -> Green -> Red 
+            colorIndex--;
+            if (colorIndex < 0) {
+                colorIndex = 2; // ถ้าน้อยกว่า 0 ให้วนกลับไปตัวสุดท้าย (Blue)
+            }
+
+            updateBalloon(); // สั่งให้อัปเดตหน้าจอ
+        }
+
+        // ฟังก์ชันช่วย: อัปเดตสีและขนาดบนหน้าจอจริง
+        function updateBalloon() {
+            balloon.style.width = size + 'px';
+            balloon.style.height = size + 'px';
+            balloon.style.backgroundColor = colors[colorIndex];
+        }
+    </script>
+</body>
+</html>

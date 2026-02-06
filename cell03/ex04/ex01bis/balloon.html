@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Balloon (jQuery Version)</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s; /* เพื่อให้เห็นการเปลี่ยนแปลงนุ่มนวล */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="balloon"></div>
+
+    <script>
+        // รอให้เอกสารโหลดเสร็จสมบูรณ์ก่อนทำงาน
+        $(document).ready(function() {
+            
+            // กำหนดค่าเริ่มต้น
+            var size = 200;
+            var colorIndex = 0;
+            var colors = ['red', 'green', 'blue'];
+            var $balloon = $('#balloon'); // เก็บตัวแปร jQuery ไว้ใช้งาน
+
+            // ฟังก์ชันอัปเดตหน้าจอ (เขียนแบบ jQuery)
+            function updateBalloon() {
+                $balloon.css({
+                    'width': size + 'px',
+                    'height': size + 'px',
+                    'background-color': colors[colorIndex]
+                });
+            }
+
+            // 1. เหตุการณ์เมื่อคลิก (Click)
+            $balloon.click(function() {
+                // เพิ่มขนาด 10px
+                size += 10;
+
+                // ตรวจสอบการระเบิด
+                if (size > 420) {
+                    size = 200;
+                    colorIndex = 0; // กลับเป็นสีแดง
+                } else {
+                    // เปลี่ยนสีวนไปข้างหน้า: Red -> Green -> Blue -> Red
+                    colorIndex++;
+                    if (colorIndex > 2) {
+                        colorIndex = 0;
+                    }
+                }
+                updateBalloon();
+            });
+
+            // 2. เหตุการณ์เมื่อเมาส์ออก (Mouse Leave)
+            $balloon.mouseleave(function() {
+                // ลดขนาดลง 5px
+                size -= 5;
+
+                // ห้ามเล็กกว่า 200px
+                if (size < 200) {
+                    size = 200;
+                }
+
+                // เปลี่ยนสีวนกลับ: Blue -> Green -> Red
+                colorIndex--;
+                if (colorIndex < 0) {
+                    colorIndex = 2;
+                }
+                updateBalloon();
+            });
+
+        });
+    </script>
+</body>
+</html>

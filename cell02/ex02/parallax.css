@@ -1,0 +1,50 @@
+/* ตั้งค่าพื้นฐานให้หน้าเว็บไม่มีขอบขาวเกินมา */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+/* คลาสสำหรับส่วนที่เป็นภาพ Parallax */
+.parallax-section {
+    /* สำคัญ! คำสั่งนี้ทำให้เกิดเอฟเฟกต์ Parallax */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* ความสูงของส่วนนี้ */
+    height: 100%; 
+}
+
+/* ระบุรูปภาพรูปแรก (ต้องตรงกับชื่อไฟล์รูปที่คุณเตรียมไว้) */
+.image1 {
+    background-image: url('img1.jpg');
+}
+
+/* ระบุรูปภาพรูปที่สอง */
+.image2 {
+    background-image: url('img2.jpg');
+}
+
+/* คลาสสำหรับส่วนที่เป็นกล่องสีดำ (Static) */
+.static-section {
+    height: 400px; /* ความสูงของกล่องดำ */
+    background-color: black; /* สีพื้นหลังดำตามโจทย์ */
+    color: white; /* ตัวหนังสือสีขาว */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* การจัดข้อความให้อยู่ตรงกลางสำหรับส่วนรูปภาพ */
+.centered-text {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* พื้นหลังจางๆ ให้ตัวหนังสือชัดขึ้น */
+    padding: 20px;
+}

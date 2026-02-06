@@ -1,0 +1,61 @@
+/* จัดหน้าจอให้เมนูอยู่กึ่งกลาง*/
+body {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    height: 100vh;           
+    margin: 0;
+    background-color: #f4f4f4; 
+    font-family: Arial, sans-serif;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #3b5998; 
+    color: white;
+    padding: 16px 32px; 
+    font-size: 20px;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    transition: background-color 0.3s; 
+}
+
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 100%; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    z-index: 1;
+    margin-top: 5px; 
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 8px;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.dropdown:hover .dropbtn {
+    background-color: #2d4373;
+}

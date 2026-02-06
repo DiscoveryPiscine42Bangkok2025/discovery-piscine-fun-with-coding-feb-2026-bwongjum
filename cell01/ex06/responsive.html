@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Table</title>
+    <style>
+        /* 1. กำหนดให้ html และ body เต็มหน้าจอ เพื่อให้ตารางอ้างอิงความสูงได้ */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 2. กำหนดให้ตารางขยายเต็มพื้นที่ทั้งความกว้างและความสูง */
+        table {
+            width: 100%;  /* กว้างเต็มจอ */
+            height: 100%; /* สูงเต็มจอ */
+            border-collapse: collapse; /* (ตัวเลือกเสริม) เพื่อให้เส้นขอบสวยงามขึ้น */
+        }
+    </style>
+</head>
+<body>
+
+    <table border="1">
+        <tr>
+            <td style="background-color: red;">
+                ช่องที่ 1
+            </td>
+            
+            <td style="background-color: cyan;">
+                ช่องที่ 2
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
