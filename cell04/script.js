@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 entry.target.classList.add('visible');
             }
         });
-    }, { threshold: 0.15 }); // เพิ่ม threshold ให้เลื่อนเข้ามานิดนึงค่อยโชว์
+    }, { threshold: 0.15 }); 
 
     fadeElements.forEach(el => fadeObserver.observe(el));
 
