@@ -1,6 +1,5 @@
-/* จัดหน้าเว็บให้อยู่ตรงกลาง */
 body {
-    background-color: #333; /* สีพื้นหลังหน้าเว็บ */
+    background-color: #333; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,61 +7,54 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* ตกแต่งตัวการ์ด (ที่เป็นตาราง) */
 .my-card {
-    background-color: white; /* สีพื้นหลังการ์ด */
-    width: 300px; /* ความกว้างการ์ด */
-    text-align: center; /* จัดตัวหนังสือให้อยู่ตรงกลาง */
-    border-collapse: collapse; /* รวมเส้นขอบตาราง */
-    border-radius: 10px; /* ทำมุมโค้งมน */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* ใส่เงาให้ดูมีมิติ */
+    background-color: white; 
+    width: 300px; 
+    text-align: center; 
+    border-collapse: collapse; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
     
-    /* ตรงนี้สำคัญ! โจทย์สั่ง Invisible table คือต้องไม่เห็นเส้นขอบ */
     border: none; 
 }
 
-/* จัดการช่องว่างภายในตาราง */
 td {
     padding: 10px;
-    border: none; /* ย้ำอีกทีว่าห้ามมีเส้นขอบ  */
+    border: none; 
 }
 
-/* ตกแต่งหัวข้อด้านบน */
 .header-title {
     background-color: black;
     color: white;
     padding: 15px;
     font-weight: bold;
-    border-radius: 10px 10px 0 0; /* โค้งมนเฉพาะด้านบน */
+    border-radius: 10px 10px 0 0; 
 }
 
-/* ตกแต่งรูปโปรไฟล์ */
 .profile-pic {
-    width: 150px; /* ขนาดรูป */
+    width: 150px; 
     height: 150px;
-    border-radius: 50%; /* ทำให้รูปเป็นวงกลม */
+    border-radius: 50%; 
     object-fit: cover;
 }
 
-/* ตกแต่งไอคอนโซเชียล */
 .social-icon {
     width: 30px;
     margin: 5px;
     cursor: pointer;
 }
 
-/* ตกแต่งปุ่ม Contact */
 .contact-btn {
     background-color: black;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    width: 100%; /* ปุ่มกว้างเต็มช่อง */
+    width: 100%; 
     font-size: 16px;
     margin-bottom: 10px;
 }
 
 .contact-btn:hover {
-    background-color: #555; /* เปลี่ยนสีเมื่อเอาเมาส์ไปชี้ */
+    background-color: #555;
 }

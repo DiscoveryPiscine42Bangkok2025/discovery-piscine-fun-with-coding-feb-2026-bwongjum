@@ -20,49 +20,37 @@
     <input type="submit" value="Try me!" onclick="calculate()">
 
     <script>
-        // กฎ: ทุกๆ 30 วินาที ต้องเด้งเตือนว่า 'Please, use me...' 
         setInterval(function(){ 
             alert("Please, use me..."); 
         }, 30000);
 
-        // ฟังก์ชันคำนวณ ทำงานเมื่อกดปุ่ม Try me!
         function calculate() {
-            // 1. ดึงค่าจากช่องต่างๆ มาเก็บไว้ในตัวแปร
             var leftStr = document.getElementById("leftMember").value;
             var rightStr = document.getElementById("rightMember").value;
             var op = document.getElementById("operator").value;
 
-            // 2. แปลงข้อความให้เป็นตัวเลข (Integer)
             var left = parseInt(leftStr);
             var right = parseInt(rightStr);
 
-            // 3. ตรวจสอบความถูกต้อง (Validation)
-            // กฎ: ต้องเป็นจำนวนเต็มบวก (>=0) เท่านั้น [cite: 65]
-            // เช็คว่าค่าที่ใส่มาใช่ตัวเลขไหม? และต้องไม่ติดลบ
             if (leftStr != left || rightStr != right || left < 0 || right < 0) {
                 alert("Error :(");
-                return; // จบการทำงานทันทีถ้าผิดเงื่อนไข [cite: 66]
+                return; 
             }
 
-            // 4. คำนวณตามเครื่องหมาย
             var result;
             
-            // กฎ: ถ้าหารหรือ Modulo ด้วย 0 ต้องเด้งว่า It's over 9000! 
             if ((op == '/' || op == '%') && right == 0) {
                 console.log("It's over 9000!");
                 alert("It's over 9000!");
                 return;
             }
 
-            // เริ่มคำนวณปกติ
             if (op == '+') result = left + right;
             else if (op == '-') result = left - right;
             else if (op == '*') result = left * right;
             else if (op == '/') result = left / right;
             else if (op == '%') result = left % right;
 
-            // 5. แสดงผลลัพธ์
-            // กฎ: แสดงผลทั้งใน Alert และใน Console 
             console.log(result);
             alert(result);
         }

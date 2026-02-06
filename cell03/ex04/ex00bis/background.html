@@ -10,10 +10,8 @@
     <button id="myBtn">Click me!</button>
 
     <script>
-        // รอให้เอกสารโหลดเสร็จก่อนทำงาน
         $(document).ready(function() {
             
-            // ดักจับเหตุการณ์การคลิกที่ปุ่ม id="myBtn"
             $("#myBtn").click(function() {
                 
                 let r = Math.floor(Math.random() * 256);
@@ -22,7 +20,6 @@
 
                 let randomColor = "rgb(" + r + "," + g + "," + b + ")";
 
-                // 3. ใช้คำสั่ง .css() ของ jQuery เปลี่ยนสีพื้นหลัง
                 $("body").css("background-color", randomColor);
             });
 

@@ -21,41 +21,32 @@
     <input type="submit" id="calculateBtn" value="Try me!">
 
     <script>
-        // ตรวจสอบว่าเอกสารโหลดเสร็จแล้ว
         $(document).ready(function() {
 
-            // กฎ: ทุกๆ 30 วินาที เด้งเตือน (เหมือนเดิม)
             setInterval(function(){ 
                 alert("Please, use me..."); 
             }, 30000);
 
-            // เมื่อกดปุ่มที่มี id="calculateBtn"
             $("#calculateBtn").click(function() {
                 
-                // 1. ดึงค่าโดยใช้ .val() ของ jQuery
                 var leftStr = $("#leftMember").val();
                 var rightStr = $("#rightMember").val();
                 var op = $("#operator").val();
 
-                // 2. แปลงข้อความให้เป็นตัวเลข
                 var left = parseInt(leftStr);
                 var right = parseInt(rightStr);
 
-                // 3. ตรวจสอบความถูกต้อง (Validation)
-                // หมายเหตุ: การเปรียบเทียบ leftStr != left อาศัย Type Coercion ของ JS จึงยังใช้ได้เหมือนเดิม
                 if (leftStr != left || rightStr != right || left < 0 || right < 0) {
                     alert("Error :(");
                     return; 
                 }
 
-                // 4. ตรวจสอบการหาร/mod ด้วย 0
                 if ((op == '/' || op == '%') && right == 0) {
                     console.log("It's over 9000!");
                     alert("It's over 9000!");
                     return;
                 }
 
-                // คำนวณ
                 var result;
                 if (op == '+') result = left + right;
                 else if (op == '-') result = left - right;
@@ -63,7 +54,6 @@
                 else if (op == '/') result = left / right;
                 else if (op == '%') result = left % right;
 
-                // 5. แสดงผลลัพธ์
                 console.log(result);
                 alert(result);
             });
